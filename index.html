@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>password</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <p>중앙인에게</p>
+                        <strong id="random-text">로딩 중...</strong> <!-- 랜덤 문구가 들어갈 부분 -->
+                    </div>
+                </div>
+            </div>
+            <div class="heart">🌸</div>
+        </div>
+    </div>
+    <script>
+        // 문구 리스트
+        const messages = [
+            "축제 재밌게 즐겨라라",
+            "사랑한다다",
+            "곧 중간고사다",
+            "힝 속았지?",
+            "꽝이지롱"
+        ];
+
+        // 랜덤 문구 선택
+        function getRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomIndex];
+        }
+
+        // 문구를 화면에 적용
+        document.getElementById("random-text").innerText = getRandomMessage();
+
+        // 봉투 클릭 이벤트 (기존 기능 유지)
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+        });
+    </script>
+</body>
+</html>
